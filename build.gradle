@@ -1,0 +1,19 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0-RC2'
+    compile 'com.squareup.retrofit:retrofit:1.6.0'
+    compile 'com.squareup.retrofit:converter-simplexml:1.6.0'
+    compile 'org.simpleframework:simple-xml:2.7.1'
+
+    compile 'com.jakewharton.timber:timber:2.3.0'
+}
+
+
