@@ -20,15 +20,16 @@ public class ApiHelper {
     private RestAdapter    mRestAdapter;
     private EveApiRetrofit mEveApi;
 
-    private String mBaseUrl;
     private String mBaseUrlLive;
     private String mBaseUrlTest;
     private boolean mUseTestApi = false;
 
     private RestAdapter.LogLevel mLogLevel = RestAdapter.LogLevel.NONE;
 
-    private long   keyID;
-    private String vCode;
+    protected long   keyID;
+    protected String vCode;
+
+    public ApiHelper() {}
 
     public ApiHelper(long keyID, String vCode) {
         this.keyID = keyID;
@@ -39,6 +40,11 @@ public class ApiHelper {
         RegistryMatcher matcher = new RegistryMatcher();
         matcher.bind(Date.class, BaseResponse.DATE_TRANSFORMER);
         mXmlSerializer = new Persister(matcher, new Format(2));
+    }
+
+    public void setCredentials(long keyID, String vCode) {
+        this.keyID = keyID;
+        this.vCode = vCode;
     }
 
     protected EveApiRetrofit api() {
@@ -111,66 +117,6 @@ public class ApiHelper {
 
     public KeyInfo getKeyInfo() {
         return api().getKeyInfo(keyID, vCode);
-    }
-
-    public AccountBalance getAccountBalance(long characterID) {
-        return api().getAccountBalance(keyID, vCode, characterID);
-    }
-
-    public AssetList getAssetList(long characterID) {
-        return api().getAssetList(keyID, vCode, characterID);
-    }
-
-    public CharacterSheet getCharacterSheet(long characterID) {
-        return api().getCharacterSheet(keyID, vCode, characterID);
-    }
-
-    public Contracts getContracts(long characterID) {
-        return api().getContracts(keyID, vCode, characterID);
-    }
-
-    public Contracts.Items getContractItems(long characterID, long contractID) {
-        return api().getContractItems(keyID, vCode, characterID, contractID);
-    }
-
-    public IndustryJobs getIndustryJobs(long characterID) {
-        return api().getIndustryJobs(keyID, vCode, characterID);
-    }
-
-    public KillLog getKillLog(long characterID) {
-        return api().getKillLog(keyID, vCode, characterID, 10);
-    }
-
-    public Mail getMail(long characterID) {
-        return api().getMail(keyID, vCode, characterID);
-    }
-
-    public Mail.Bodies getMailBodies(long characterID, Long... ids) {
-        return api().getMailBodies(keyID, vCode, characterID, ids);
-    }
-
-    public Planetary getPlanetary(long characterID) {
-        return api().getPlanetary(keyID, vCode, characterID);
-    }
-
-    public Planetary.Pins getPlanetaryPins(long characterID, long planetID) {
-        return api().getPlanetaryPins(keyID, vCode, characterID, planetID);
-    }
-
-    public Planetary.Routes getPlanetaryRoutes(long characterID, long planetID) {
-        return api().getPlanetaryRoutes(keyID, vCode, characterID, planetID);
-    }
-
-    public Planetary.Links getPlanetaryLinks(long characterID, long planetID) {
-        return api().getPlanetaryLinks(keyID, vCode, characterID, planetID);
-    }
-
-    public SkillQueue getSkillQueue(long characterID) {
-        return api().getSkillQueue(keyID, vCode, characterID);
-    }
-
-    public SkillQueue.Training getSkillInTraining(long characterID) {
-        return api().getSkillInTraining(keyID, vCode, characterID);
     }
 
 }
