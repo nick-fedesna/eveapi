@@ -25,33 +25,34 @@ public class IndustryJobs extends BaseResponse {
      */
     @Root(name = "row")
     public static class NewJob {
+
         @Attribute public long   jobID;
         @Attribute public long   installerID;
-        @Attribute public String   installerName;
+        @Attribute public String installerName;
         @Attribute public long   facilityID;
         @Attribute public long   solarSystemID;
-        @Attribute public String   solarSystemName;
+        @Attribute public String solarSystemName;
         @Attribute public long   stationID;
         @Attribute public long   activityID;
         @Attribute public long   blueprintID;
         @Attribute public long   blueprintTypeID;
-        @Attribute public String   blueprintTypeName;
+        @Attribute public String blueprintTypeName;
         @Attribute public long   blueprintLocationID;
         @Attribute public long   outputLocationID;
         @Attribute public long   runs;
-        @Attribute public double   cost;
+        @Attribute public double cost;
         @Attribute public long   teamID;
         @Attribute public long   licensedRuns;
-        @Attribute public double   probability;
+        @Attribute public double probability;
         @Attribute public long   productTypeID;
-        @Attribute public String   productTypeName;
-        @Attribute public String   status;
+        @Attribute public String productTypeName;
+        @Attribute public String status;
         @Attribute public long   timeInSeconds;
-        @Attribute public Date startDate;
-        @Attribute public Date endDate;
-        @Attribute public Date pauseDate;
-        @Attribute public Date completedDate;
-        @Attribute public long completedCharacterID;
+        @Attribute public Date   startDate;
+        @Attribute public Date   endDate;
+        @Attribute public Date   pauseDate;
+        @Attribute public Date   completedDate;
+        @Attribute public long   completedCharacterID;
 
         @Override
         public String toString() {
@@ -60,6 +61,7 @@ public class IndustryJobs extends BaseResponse {
     }
 
 
+    @Deprecated
     @Root(name = "row")
     public static class Job {
 

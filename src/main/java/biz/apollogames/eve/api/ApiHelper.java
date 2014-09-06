@@ -4,7 +4,6 @@ import java.net.Proxy;
 import java.util.Date;
 
 import biz.apollogames.eve.api.account.*;
-import biz.apollogames.eve.api.character.*;
 import biz.apollogames.eve.api.eve.TypeName;
 import org.simpleframework.xml.core.Persister;
 import org.simpleframework.xml.stream.Format;
